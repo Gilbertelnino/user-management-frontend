@@ -1,0 +1,56 @@
+.logincontainer {
+  max-width: 660px;
+  margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.registerContainer {
+  max-width: 960px;
+  margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.header {
+  padding: 1rem 0;
+  background-color: #f4f4f4;
+}
+.nav {
+  display: flex;
+  max-width: 1100px;
+  justify-content: space-between;
+  margin: 0 auto;
+  align-items: center;
+}
+.container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* profile */
+.profile {
+  display: flex;
+  height: 100vh;
+}
+
+.image {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.profileinfo {
+  margin-left: 1.3rem;
+}
