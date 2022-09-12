@@ -23,6 +23,11 @@ const Register = () => {
     email: "",
     password: "",
   });
+  const strongPasswordRegex =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\\$%\\^&\\*])(?=.{8,})/;
+  const strongPassswordError = new Error(
+    "Password must be strong. At least one upper case alphabet. At least one lower case alphabet. At least one digit. At least one special character. Minimum eight in length"
+  );
 
   const [photo, setPhoto] = useState("");
   const [message, setMessage] = useState("");
@@ -31,6 +36,16 @@ const Register = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setData({ ...data, [name]: value });
+  };
+
+  const handleStrongPassword = (e) => {
+    const { name, value } = e.target;
+    if (!strongPasswordRegex.test(value)) {
+      setError(strongPassswordError.message);
+      setData({ ...data, [name]: value });
+    } else {
+      setData({ ...data, [name]: value });
+    }
   };
 
   //   console.log("data: ", data);
@@ -68,10 +83,12 @@ const Register = () => {
           "http://localhost:5000/api/user/register",
           formData
         );
-        setMessage(submitDat.data.message);
+        console.log("submitDat: ", submitDat);
+        setMessage(submitDat?.data?.message);
       }
     } catch (error) {
-      setError(error.response.data.error);
+      console.log("error generated: ", error);
+      setError(error.response?.data?.error);
     }
   };
 
@@ -244,7 +261,7 @@ const Register = () => {
               placeholder="password"
               name="password"
               value={data?.password}
-              onChange={handleChange}
+              onChange={handleStrongPassword}
             />
             <Form.Control.Feedback type="invalid">
               Password is required

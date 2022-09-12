@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import Row from "react-bootstrap/Row";
+import { Row, Col, Form, Button, Alert } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import styles from "../styles/styles.module.css";
 import axios from "axios";
-import Alert from "react-bootstrap/Alert";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -94,9 +91,18 @@ const Login = () => {
           </Form.Group>
         </Row>
         {error && <Alert variant="danger">{error}</Alert>}
-        <Button type="submit">Login</Button>
+        <Row className="mt-3">
+          <Col>
+            <Button type="submit">Login</Button>
+          </Col>
+          <Col>
+            <Link to="/forgot-password" style={{ fontSize: "14px" }}>
+              Forgot password?
+            </Link>
+          </Col>
+        </Row>
       </Form>
-      <p className={styles.text}>
+      <p className={styles.text} style={{ marginTop: "12px" }}>
         Don't have an account? <Link to="/register">Register</Link>
       </p>
     </div>
