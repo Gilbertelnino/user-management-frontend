@@ -1,4 +1,4 @@
-const productionApiUrl = "https://prod.com/api";
+const productionApiUrl = "https://user-management12.herokuapp.com/api";
 const localApiUrl = "http://localhost:5000/api";
 
 const axiosConfig = (axios) => {
