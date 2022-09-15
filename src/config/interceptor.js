@@ -3,7 +3,7 @@ const localApiUrl = "http://localhost:5000/api";
 
 const axiosConfig = (axios) => {
   if (process.env.NODE_ENV === "development") {
-    axios.defaults.baseURL = localApiUrl;
+    axios.defaults.baseURL = productionApiUrl;
   } else {
     axios.defaults.baseURL = productionApiUrl;
   }
